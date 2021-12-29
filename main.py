@@ -22,9 +22,10 @@ class App:
 		enemy_url = self.addEnemyInput.get()
 		enemy = e.Enemy(enemy_url)
 		self.enemies.append(enemy)
-		for en in self.enemies:
-			print(self.enemies.index(en))
-			en.getStats()
+		enemyFrame = Frame(self.enemiesFrame)
+		enemyFrame.pack()
+		enemyLabel = Label(enemyFrame,text=enemy.getStats())
+		enemyLabel.pack(side=TOP)
 
 if __name__=="__main__":
 
