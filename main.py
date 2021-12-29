@@ -11,7 +11,7 @@ class App:
 		addFrame.pack()
 		self.addEnemyInput = Entry(addFrame)
 		self.addEnemyInput.pack(side=LEFT)
-		self.button = Button(addFrame, text="Přidej Enemy", fg="black", command=self.add_enemy)
+		self.button = Button(addFrame, text="Add Enemy",command=self.add_enemy)
 		self.button.pack(side=LEFT)
 
 		self.enemiesFrame = Frame(master,bg="yellow",height=400,width=600)
@@ -26,6 +26,7 @@ class App:
 		enemyFrame.pack()
 		enemyLabel = Label(enemyFrame,text=enemy.getStats())
 		enemyLabel.pack(side=TOP)
+		enemy.getAbilityBlock(enemyFrame)
 
 if __name__=="__main__":
 
