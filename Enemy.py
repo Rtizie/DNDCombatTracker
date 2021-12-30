@@ -1,5 +1,5 @@
-from tkinter import *
-from typing import Sized, Text
+import tkinter as tk
+import tkinter.ttk as ttk
 from requests_html import HTMLSession
 from bs4 import BeautifulSoup
 import re
@@ -95,13 +95,13 @@ class Enemy:
     
     def getAbilityBlock(self,frame):
         abilityBlocks = []
-        STRblock = Button(frame, text=f"STR: {self.strg} {self.strM}", command=lambda: self.roll('STR'))
-        DEXblock = Button(frame, text=f"DEX: {self.dex} {self.dexM}", command=lambda: self.roll('DEX'))
-        CONblock = Button(frame, text=f"CON: {self.con} {self.conM}", command=lambda: self.roll('CON'))
-        INTblock = Button(frame, text=f"INT: {self.inte} {self.intM}", command=lambda: self.roll('INT'))
-        WISblock = Button(frame, text=f"WIS: {self.wis} {self.wisM}", command=lambda: self.roll('WIS'))
-        CHAblock = Button(frame, text=f"CHA: {self.cha} {self.chaM}", command=lambda: self.roll('CHA'))
-        INIblock = Button(frame, text=f"INI: 0 {self.dexM}", command=lambda: self.roll('INI'))
+        STRblock = ttk.Button(frame, text=f"STR: {self.strg} {self.strM}", command=lambda: self.roll('STR'))
+        DEXblock = ttk.Button(frame, text=f"DEX: {self.dex} {self.dexM}", command=lambda: self.roll('DEX'))
+        CONblock = ttk.Button(frame, text=f"CON: {self.con} {self.conM}", command=lambda: self.roll('CON'))
+        INTblock = ttk.Button(frame, text=f"INT: {self.inte} {self.intM}", command=lambda: self.roll('INT'))
+        WISblock = ttk.Button(frame, text=f"WIS: {self.wis} {self.wisM}", command=lambda: self.roll('WIS'))
+        CHAblock = ttk.Button(frame, text=f"CHA: {self.cha} {self.chaM}", command=lambda: self.roll('CHA'))
+        INIblock = ttk.Button(frame, text=f"INI: 0 {self.dexM}", command=lambda: self.roll('INI'))
         
         abilityBlocks.append(STRblock)
         abilityBlocks.append(DEXblock)
@@ -112,12 +112,12 @@ class Enemy:
         abilityBlocks.append(INIblock)
 
         for block in abilityBlocks:
-            block.pack(side=LEFT)
+            block.pack(side=tk.LEFT)
 
 
         # Roll label
-        self.rollLabel = Label(frame,text="Rolled")
-        self.rollLabel.pack(side=TOP)
+        self.rollLabel = ttk.Label(frame,text="Rolled")
+        self.rollLabel.pack(side=tk.TOP)
 
     def roll(self,ability):
         throw = r.randint(1,20)
